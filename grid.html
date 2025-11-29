@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'font';
+            min-height: 100vh;
+        }
+
+        /* Desktop Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr;
+            grid-template-rows: 100px 400px 1fr 200px;
+            min-height: 100vh;
+        }
+
+        .header {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            background-color: #1a2332;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .menu {
+            grid-column: 2 / 4;
+            grid-row: 1 / 2;
+            background-color: #e2ac16e1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 50px;
+            font-weight: solid 1000;
+            gap: 40px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .menu a:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+            background: url('head.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+            padding-left: 60px;
+        }
+
+        .hero-text {
+            color: white;
+            text-align: left ;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text p {
+            font-size: 24px;
+            text-shadow: 1px 1px 2px rgba(29, 29, 29, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main {
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+            background-color: #412123;
+            color: rgba(243, 239, 239, 0.932);
+            padding: 40px;
+        }
+
+        .main h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .main p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .image {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbMRPJBUbSVmVHpQAftIkmgY4hCiP_TOCvAA&s')center/cover;
+        }
+
+        .extra {
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+            background-color: #1f0018;
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .extra h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .extra p {
+            font-size: 16px;
+        }
+
+        .banner {
+            grid-column: 1 / 3;
+            grid-row: 4 / 5;
+            background-color: #4d1b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .banner-content {
+            text-align: center;
+        }
+
+        .banner-content h3 {
+            font-size: 32px;
+            color: #ee7a57;
+            margin-bottom: 10px;
+        }
+
+        .banner-content button {
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: #990b01;
+            color: white;
+            border: solid 2px bold ;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .banner-content button:hover {
+            background-color: #062747;
+            transform: scale(1.05);
+        }
+
+        /* Tablet Layout */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 110px 1fr 1fr;
+                grid-template-rows: 100px 350px 1fr 180px 180px;
+            }
+
+            .header {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+
+            .menu {
+                grid-column: 1 / 2;
+                grid-row: 2 / 5;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                grid-column: 2 / 4;
+                grid-row: 1 / 3;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text p {
+                font-size: 20px;
+            }
+
+            .main {
+                grid-column: 2 / 4;
+                grid-row: 3 / 4;
+                padding: 30px;
+            }
+
+            .banner {
+                grid-column: 2 / 4;
+                grid-row: 4 / 5;
+            }
+
+            .extra {
+                grid-column: 1 / 3;
+                grid-row: 5 / 6;
+            }
+
+            .image {
+                grid-column: 3 / 4;
+                grid-row: 5 / 6;
+            }
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 60px 300px auto 180px 150px 200px;
+            }
+
+            .header {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+                font-size: 20px;
+            }
+
+            .menu {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .menu a {
+                font-size: 16px;
+            }
+
+            .hero {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .main {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+                padding: 25px;
+            }
+
+            .main h2 {
+                font-size: 28px;
+            }
+
+            .main p {
+                font-size: 16px;
+            }
+
+            .banner {
+                grid-column: 1 / 2;
+                grid-row: 5 / 6;
+            }
+
+            .banner-content h3 {
+                font-size: 24px;
+            }
+
+            .extra {
+                grid-column: 1 / 2;
+                grid-row: 6 / 7;
+            }
+
+            .image {
+                grid-column: 1 / 2;
+                grid-row: 7 / 8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            LOGO
+        </div>
+        
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#New Arrivals">New Arrivals</a>
+            <a href="#Orders">Orders</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        
+        <div class="hero">
+            <div class="hero-text">
+                <h1>FEEL THE RYTHM</h1>
+                <h2>NEW COLLECTIONS</h2>
+            </div>
+        </div>
+        
+        <div class="main">
+            <h2>About Us</h2>
+            <p>We believe that music is more than just sound; it's an experience that deserves to be heard in its full glory.</p>
+            <p>Our mission is to engineer high-fidelity headphones that transport you directly to the studio or the stage, so you can rediscover your favorite music with unparalleled clarity and depth.</p>
+            <p>Our mission is to connect you deeply with your favorite tracks, delivering exceptional audio experiences that last.</p> 
+            <p>Discover the difference passion makes in every beat.</p>
+        </div>
+        
+        <div class="image"></div>
+        
+        <div class="banner">
+            <div class="banner-content">
+                <h3>New Year Offers!</h3>
+                <button>Place Your Order</button>
+            </div>
+        </div>
+        
+        <div class="extra">
+            <h3>Features</h3>
+            <p>✓ Noise Cancellation</p>
+            <p>✓ Voice Clarifying Technology</p>
+            <p>✓ 2-Year Guarantee </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
